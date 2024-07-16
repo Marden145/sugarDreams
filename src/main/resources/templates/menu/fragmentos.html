@@ -1,0 +1,47 @@
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+
+        <title>SugarDreams </title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+            <meta charset="UTF-8"/>
+
+    </head>
+    <body>
+        <section th:fragment="menuUsuario" class="py-4 mb-4 bg-light">
+            <div class="container mt-5">
+                <div th:each="categoria : ${categorias}">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h4 th:text="${categoria.nombre}"></h4>
+                        </div>
+                        
+                        <div class="card-body" >
+
+                            <div class="row" th:if="${categoria.productos != null and !categoria.productos.empty}">
+                                <div class="col-md-3 mb-3" th:each="producto : ${categoria.productos}">
+                                    <div class="card h-100" style="background-color:#fda7cb;">
+                                        <img th:src="${producto.rutaImagen}" alt="Imagen del producto" class="card-img-top" height="150px">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-center" >[[${producto.nombre}]]</h5>
+                                                <p class="card-text text-center" >Descripcion: [[${producto.descripcion}]]</p>
+                                                <p  class="card-text text-center" > ¢[[${producto.precio}]]  </p>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+
+    </body>
+</html>

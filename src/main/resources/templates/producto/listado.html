@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--- Mi primera pagina dinamica-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/administrador :: head}">
+        <title>Menu Admin</title>
+        <meta charset="UTF-8"/>
+       
+    </head>
+    <body>
+        <header th:replace="~{layout/administrador :: header}"/> 
+      
+
+     <section th:replace="~{producto/fragmentos :: botonesAgregar}"/>
+          <section th:replace="~{producto/fragmentos :: agregarProducto}"/>
+         
+          <section th:replace="~{producto/fragmentos :: listadoProductos}"/> 
+    </body>
+</html>

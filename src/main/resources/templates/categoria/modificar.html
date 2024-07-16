@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--- Mi primera pagina dinamica-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Categoria</title>
+        <meta charset="UTF-8"/>
+       
+    </head>
+    <body>
+        <header th:replace="~{layout/administrador :: header}"/>
+    
+        <section th:replace="~{categoria/fragmentos :: editarCategoria}"/>
+        
+       
+        <footer th:replace="~{layout/administrador:: footer}"/>
+       
+
+
+
+
+    </body>
+</html>
