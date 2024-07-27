@@ -16,4 +16,8 @@ public class Curso implements Serializable{
     private double precio;
     private String duracion;
     private String nombre;
+    private String modalidad;
+    private String material;
+    private String nivel;
+    private String categoria;
 }
