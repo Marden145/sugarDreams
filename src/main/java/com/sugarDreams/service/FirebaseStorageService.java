@@ -8,7 +8,7 @@ public interface FirebaseStorageService {
     public String cargaImagen(MultipartFile archivoLocalCliente, String carpeta, Long id);
 
  
-    final String BucketName = "sugardreams-dd87c.appspot.com";
+    final String BucketName = "sugardreams-6d4c6.appspot.com";
 
     //Esta es la ruta básica de este proyecto Techshop
     final String rutaSuperiorStorage = "sugardreams";
@@ -17,6 +17,6 @@ public interface FirebaseStorageService {
     final String rutaJsonFile = "firebase";
 
     //El nombre del archivo Json
-    final String archivoJsonFile = "sugardreams-dd87c-firebase-adminsdk-aiatl-7cb136effb.json";
+    final String archivoJsonFile = "sugardreams-6d4c6-firebase-adminsdk-vnnmn-6222b249e2.json";
 
 }

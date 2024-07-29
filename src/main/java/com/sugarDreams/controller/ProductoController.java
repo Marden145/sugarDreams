@@ -1,11 +1,4 @@
 package com.sugarDreams.controller;
-
-
-
-
-
-
-
 import com.sugarDreams.domain.Producto;
 import com.sugarDreams.service.CategoriaService;
 import com.sugarDreams.service.FirebaseStorageService;
@@ -68,6 +61,18 @@ public class ProductoController {
         model.addAttribute("categorias", categorias);
 
         return "/producto/modificar";
+    }
+    
+    
+         @PostMapping("/consulta1")
+    public String consultaQuery1(
+            @RequestParam(value = "nombre") String nombre,
+            Model model) {
+        var productos = productoService.nombre(nombre);
+        model.addAttribute("productos", productos);
+        model.addAttribute("nombre", nombre);
+       
+       return "/producto/listado";
     }
 
 }

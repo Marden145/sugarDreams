@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!--- Mi primera pagina dinamica-->
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{layout/administrador :: head}">
+    <head th:replace="~{layout/plantilla :: head}">
         <title>Menu Admin</title>
         <meta charset="UTF-8"/>
 
@@ -13,11 +14,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">   
-                        <button 
-                            type="button" 
-                            class="btn btn-primary btn-block" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#agregarProducto">
+                        <button  sec:authorize='hasRole("ROLE_ADMIN")'
+                                 type="button" 
+                                 class="btn btn-primary btn-block" 
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#agregarProducto">
                             <i class="fas fa-plus"></i> [[#{producto.agregar}]]
                         </button>
                     </div>
@@ -25,8 +26,7 @@
             </div>
         </section>
 
-        <!-- Agregar producto -->
-        <section th:fragment="agregarProducto">
+       <section th:fragment="agregarProducto">
             <div id="agregarProducto" 
                  class="modal fade" 
                  tabindex="-1" 
@@ -94,8 +94,8 @@
             </div>
         </section>
 
-        <!-- MostrarProducto -->
-        <section th:fragment="listadoProductos" id="productos">
+
+       <section th:fragment="listadoProductos" id="productos">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -140,6 +140,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- Editar -->
         <section th:fragment="editarProducto">
@@ -244,6 +246,43 @@
                 </div>
             </div>
         </section>
+        
+        </section>
+        <section th:fragment="filtros" class="bg-light">
+            <div class="row row-cols-4">
+
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/producto/query1}" 
+                          class="was-validated">
+                        <div class="card">                            
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="nombre">nombre</label>
+                                    <input type="text" class="form-control" 
+                                           th:value="${nombre}"
+                                           th:name="nombre" required="true"/>
+                                </div>
+
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fas fa-check"></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                
+                
+
+
+
+            </div>
+        </section>
+
 
          </body>
 </html>

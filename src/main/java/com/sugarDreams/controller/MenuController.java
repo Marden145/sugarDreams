@@ -24,17 +24,6 @@ public class MenuController {
     @Autowired
     private CategoriaService categoriaService;
 
-//    @GetMapping("/menu")
-//    public String reposteria(Model model) {
-//        var lista = productoService.getProductos(false);
-//        model.addAttribute("productos", lista);
-//
-//        var categorias = categoriaService.getCategorias(false);
-//        model.addAttribute("categorias", categorias);
-//
-//        return "/menu/menu";
-//    }
-
   
     
     @GetMapping("/menu")

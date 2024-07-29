@@ -1,7 +1,7 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://wwww.thymeleaf.org">
 
     <head th:replace="~{layout/plantilla :: head}">
@@ -241,16 +241,21 @@
                             </div>
                             <div class="mt-5">
                                 <form th:action="@{/curso/guardar}" method="post">
-                                    
-                                    
+
+
 
                                 </form>
-                                <button th:href="@{/curso/confirmacion}" type="submit" class="btn btn-primary btn-lg rounded-pill" style="background-color:#2c428a;">Inscribirse</button>
+                                <button th:href="@{/curso/confirmacion}" 
+                                        type="submit"
+                                        class="btn btn-primary btn-lg rounded-pill" 
+                                        style="background-color:#2c428a;">Inscribirse
+                                </button>
                                 <a th:href="@{/curso/eliminar/}+${c.idCurso}"
                                    class="btn btn-primary btn-lg rounded-pill" 
                                    style="background-color:#2c428a;
                                    text-decoration: #87a789">
                                     <i class="fas fa-trash"></i> Eliminar</a>
+                                
                                 <a th:href="@{/curso/modificar/}+${c.idCurso}"
                                    class="btn btn-primary btn-lg rounded-pill" 
                                    style="background-color:#2c428a;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--- Mi primera pagina dinamica-->
 <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
         <title>SugarDreams </title>
@@ -13,7 +14,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">   
-                        <button 
+                        <button
+                             sec:authorize='hasRole("ROLE_ADMIN")'
                             type="button" 
                             class="btn btn-primary btn-block" 
                             data-bs-toggle="modal" 
@@ -49,7 +51,7 @@
                                     <label for="activo">[[#{categoria.activo}]]</label>
                                     <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
                                 </div>
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit">Guardar</button>
@@ -75,14 +77,15 @@
                                         <tr><th>#</th>
                                             <th>[[#{categoria.nombre}]]</th>
                                             <th>[[#{categoria.activo}]]</th>
-                                            <th></th></tr>
+                                            <th  sec:authorize='hasRole("ROLE_ADMIN")'></th></tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="categoria, contador : ${categorias}">
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${categoria.nombre}]]</td>
                                             <td th:text="${categoria.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                                            <td sec:authorize='hasRole("ROLE_ADMIN")'>
+                                                <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"
