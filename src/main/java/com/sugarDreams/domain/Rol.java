@@ -4,25 +4,24 @@
  */
 package com.sugarDreams.domain;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "rol")
-public class Rol implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+@Entity
+@Table (name="rol")
+public class Rol  implements Serializable {
+  private static  final long serialVersionUID=1L;
+  
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column (name = "id_rol")
     private Long idRol;
-
-    @NotEmpty
     private String nombre;
-
-    @Column(name = "id_usuario")
+    @Column (name = "id_usuario")
     private Long idUsuario;
+    
 }
