@@ -9,6 +9,15 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
+       <section id="main-header" class="py-2 text-black" style="background-color: E8E9EA;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1> [[#{plantilla.suTienda}]]</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
         <section th:fragment="diseños" class="py-4 mb-4 bg-light">
             <div class="container d-flex justify-content-center align-items-center">
             <div id="carousel" class="carousel slide">

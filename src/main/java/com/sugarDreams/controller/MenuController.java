@@ -32,5 +32,15 @@ public class MenuController {
         model.addAttribute("categorias", categorias);
         return "/menu/menu";
     }
+      @PostMapping("/consultaNombre")
+    public String consultaNombre(
+            @RequestParam(value = "nombre") String nombre,
+            Model model) {
+        var productos = productoService.nombre(nombre);
+        model.addAttribute("productos", productos);
+        model.addAttribute("nombre", nombre);
+       
+       return "/menu/menu";
+    }
 
 }

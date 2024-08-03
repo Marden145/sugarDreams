@@ -64,15 +64,6 @@ public class ProductoController {
     }
     
     
-         @PostMapping("/consultaNombre")
-    public String consultaNombre(
-            @RequestParam(value = "nombre") String nombre,
-            Model model) {
-        var productos = productoService.nombre(nombre);
-        model.addAttribute("productos", productos);
-        model.addAttribute("nombre", nombre);
        
-       return "/producto/listado";
-    }
 
 }
