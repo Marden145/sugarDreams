@@ -64,6 +64,14 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
  }
+    @Bean("messageSource")
+   public MessageSource nessageSource () {
+       ResourceBundleMessageSource messageSource=
+               new ResourceBundleMessageSource ();
+    messageSource.setBasenames ("messages");
+    messageSource.setDefaultEncoding ("UTF-8"); 
+    return messageSource;
+   }
 
 @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
