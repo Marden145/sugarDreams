@@ -37,10 +37,14 @@ public class MenuController {
             @RequestParam(value = "nombre") String nombre,
             Model model) {
         var productos = productoService.nombre(nombre);
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
         model.addAttribute("productos", productos);
         model.addAttribute("nombre", nombre);
        
        return "/menu/menu";
     }
+    
+    
 
 }

@@ -62,7 +62,16 @@ public class ProductoController {
 
         return "/producto/modificar";
     }
-    
+//    @PostMapping("/consultaNombre")
+//    public String consultaNombre(
+//            @RequestParam("nombre") String nombre,
+//            Model model) {
+//        var productos = productoService.nombre(nombre);
+//        model.addAttribute("productos", productos);
+//        model.addAttribute("nombre", nombre);
+//       
+//       return "/menu/menu";
+//    }
     
        
 
