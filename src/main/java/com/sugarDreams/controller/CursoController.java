@@ -22,7 +22,8 @@ import java.util.stream.Collectors;
 public class CursoController {
      @Autowired
     private CursoService cursoService;
-    
+     
+   
     @GetMapping("/reposteria")
     public String reposteria(Model model,Curso curso){
          var lista = cursoService.getCursos(curso);
@@ -109,13 +110,19 @@ public class CursoController {
     }
     @GetMapping("/confirmacionAgregar")
     public String confirmacionAgregar(){
-        return "/curso/confirmacionAgregar";  
+        return "/curso/confirmacionAgregar";
+        
     }
-    
     @GetMapping("/confirmacionModificacion")
     public String confirmacionModificacion(){
-        return "/curso/confirmacionModificacion";  
+        return "/curso/confirmacionModificacion";
+        
     }
     
-
+        
+   
+   
+   
+    
+    
 }

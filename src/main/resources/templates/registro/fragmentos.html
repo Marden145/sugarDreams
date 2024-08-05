@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Sugar Dreams</title>
+    </head>
+    <body>
+
+        <section th:fragment="nuevoUsuario">
+            <div class="row py-2 justify-content-center">
+
+                <div class="row py-2 justify-content-center">
+                    <div class="col-md-3">
+                        <form method="POST" th:action="@{/registro/crearUsuario}" th:object="${usuario}" class="was-validated">
+                            <div class="card" style="background-color:#f1e5ea;">
+
+                                <div class="card-body" style="background-color:#f1e5ea;">
+                                    <div class="mb-3">
+
+                                        <input type="text" class="form-control" name="username" th:field="*{username}" 
+                                               required="true" placeholder="username" aria-label="username" style="background-color:#d1dcff;"/>
+                                    </div>
+                                    <div class="mb-3">
+
+                                        <input type="text" class="form-control" name="nombre" th:field="*{nombre}" 
+                                               required="true" placeholder="nombre" aria-label="nombre" style="background-color:#d1dcff;"/></div>
+                                    <div class="mb-3">
+
+                                        <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}"
+                                               required="true"  placeholder="apellidos" aria-label="apellidos" style="background-color:#d1dcff;"/></div>
+                                    <div class="mb-3">
+
+                                        <input type="email" class="form-control" 
+                                               name="correo" th:field="*{correo}"
+                                               required="true" placeholder="email" aria-label="email" style="background-color:#d1dcff;"/></div></div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4 d-grid mb-3">                                                
+                                        <button type="submit" class="btn btn-primary rounded-pill"
+                                                style="background-color:#d1dcff;">
+                                            [[#{usuario.activacion}]]
+                                        </button></div>
+                                    <div class="col-md-4 d-grid mb-3">                                                
+                                        <a th:href="@{/login}" class="btn btn-primary rounded-pill"
+                                           style="background-color:#d1dcff;">
+                                             cancelar
+                                        </a></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section th:fragment="activarUsuario">
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/registro/activar}" th:object="${usuario}" class="was-validated" enctype="multipart/form-data">
+                        <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
+                        <div class="card" style="background-color:#f1e5ea;">
+
+                            <div class="card-body" style="background-color:#f1e5ea;">
+                                <div class="mb-3">
+
+                                    <input type="text" class="form-control" name="username" th:field="*{username}" 
+                                           required="true" placeholder="username" aria-label="username" style="background-color:#d1dcff;"/></div>
+                                <div class="mb-3">
+
+                                    <input type="text" class="form-control" name="nombre" th:field="*{nombre}" 
+                                           required="true" placeholder="nombre" aria-label="nombre"/></div>
+                                <div class="mb-3">
+
+                                    <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}"
+                                           required="true"  placeholder="apellidos" aria-label="apellidos" style="background-color:#d1dcff;"/></div>
+                                <div class="mb-3">
+
+                                    <input type="email" class="form-control" 
+                                           name="correo" th:field="*{correo}"
+                                           required="true" placeholder="email" aria-label="email" style="background-color:#d1dcff;"/></div>
+                                <div class="mb-3">
+
+                                    <input type="tel" class="form-control" name="telefono" th:field="*{telefono}"
+                                           placeholder="telefono" aria-label="telefono" style="background-color:#d1dcff;"/></div>
+                                <div class="mb-3">
+
+                                    <input type="password" class="form-control" name="password" th:field="*{password}"
+                                           placeholder="password" aria-label="password" style="background-color:#d1dcff;"/></div>
+                                <div class="mb-3">
+                                    <label for="imagen">[[#{usuario.imagen}]]</label>
+                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);" style="background-color:#d1dcff;" />
+                                    <img id="blah" th:src="@{${usuario.rutaImagen}}" alt="your image" height="200"/>
+                                </div>
+                                <div class="col-md-4 d-grid">                                                
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill"
+                                            style="background-color:#d1dcff;">
+                                        <i class="fas fa-envelope"></i> [[#{usuario.activacion}]]
+                                    </button></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Fragmento que se utiliza recordar un usuario -->
+        <section th:fragment="recordarUsuario">
+
+            <div class="row py-2 justify-content-center">
+                <div class="col-md-3">
+                    <form method="POST"
+                          th:action="@{/registro/recordarUsuario}" th:object="${usuario}"
+                          class="was-validated">
+                        <div class="card" style="background-color:#f1e5ea;">
+
+                            <div class="card-body" style="background-color:#f1e5ea;">
+                                <div class="mb-3">
+                                    <div class="mb-3">
+
+                                        <input type="text" class="form-control" name="username" th:field="*{username}" 
+                                               required="true" placeholder="username" aria-label="username" style="background-color:#d1dcff;"/></div>                                               
+                                    <div class="mb-3">
+
+                                        <input type="email" class="form-control" 
+                                               name="correo" th:field="*{correo}"
+                                               required="true" placeholder="email" aria-label="email" style="background-color:#d1dcff;"/></div>
+                                </div>
+                                <div class="card-footer text-end">                                                
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill"
+                                            style="background-color:#d1dcff;">
+                                        <i class="fas fa-address-card"></i> [[#{registro.recordar.us}]]
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
