@@ -65,7 +65,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
  }
     @Bean("messageSource")
-   public MessageSource nessageSource () {
+   public MessageSource messageSource () {
        ResourceBundleMessageSource messageSource=
                new ResourceBundleMessageSource ();
     messageSource.setBasenames ("messages");
