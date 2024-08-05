@@ -48,6 +48,6 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     @Transactional(readOnly = true)
     public List<Producto> nombre(String nombre) {
-        return productoDao.findByNombreIgnoringCase(nombre);
+        return productoDao.findByNombreContainingIgnoringCase(nombre);
     }
 }

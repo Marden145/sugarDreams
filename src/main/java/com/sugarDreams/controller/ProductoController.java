@@ -31,6 +31,16 @@ public class ProductoController {
        
         return "/producto/listado";
     }
+    @GetMapping("/listado2")
+    public String listado2(Model model) {
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        model.addAttribute("totalProductos", productos.size());
+         var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
+       
+        return "/producto/listado2";
+    }
 
     @Autowired
     private FirebaseStorageService FirebaseStorageService;
