@@ -1,5 +1,5 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
 
@@ -12,23 +12,34 @@
     <body>
         <section th:fragment="menuUsuario" class="py-4 mb-4 bg-light">
             <div class="container mt-5">
-                <div th:each="categoria : ${categorias}">
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <h4 th:text="${categoria.nombre}"></h4>
+                <div th:each="categoria : ${categorias}"   >
+                    <div class="card mb-3 text-center ">
+                        <div class="card-header"  style="background-color:#d1dcff;">
+                            <h4 th:text="${categoria.nombre}" style="font-family:fantasy"></h4>
                         </div>
-                        
-                        <div class="card-body" >
-
+                        <div class="card-body  flex-column" >
                             <div class="row" th:if="${categoria.productos != null and !categoria.productos.empty}">
-                                <div class="col-md-3 mb-3" th:each="producto : ${categoria.productos}">
-                                    <div class="card h-100" style="background-color:#fda7cb;">
-                                        <img th:src="${producto.rutaImagen}" alt="Imagen del producto" class="card-img-top" height="150px">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-center" >[[${producto.nombre}]]</h5>
-                                                <p class="card-text text-center" >Descripcion: [[${producto.descripcion}]]</p>
-                                                <p  class="card-text text-center" > ¢[[${producto.precio}]]  </p>
+                                <div class=" col-md-6 mb-3" th:each="producto : ${categoria.productos} ">
+                                    <div class="card mb-3 " >
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img th:src="${producto.rutaImagen}" alt="Imagen del producto" class="card-img-top" height="220px" width="175px">
                                             </div>
+                                            <div class="col-md-8 bg-danger-subtle ">
+                                                <div class="card-body ">
+                                                    <h5 class="card-title text-center">[[${producto.nombre}]]</h5>
+                                                    <p class="card-text text-center"><small class="text-body-secondary">[[${producto.descripcion}]]</small></p>
+                                                    <p class="card-text text-center"><small class="text-body-secondary">¢[[${producto.precio}]]</small></p>
+                                                </div>
+                                                <div class="card-footer  bg-danger-subtle" style=" text-align-all: center">
+                                                    <a th:href="@{/producto/eliminar/}+${producto.idProducto}" 
+                                                       class="btn btn-primary btn-lg rounded-pill"
+                                                       style="background-color:#d1dcff; text-decoration: #87a789; margin-bottom: auto " >
+                                                        <i class="fa-solid fa-cart-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -36,9 +47,8 @@
                     </div>
                 </div>
             </div>
-          
         </section>
-        
+
         <section th:fragment="filtros" class="bg-light">
             <div class="row row-cols-4">
 
@@ -58,8 +68,8 @@
                             </div>
                             <div class="card-footer text-center">
                                 <button type="submit" class="btn btn-primary btn-lg rounded-pill" 
-                                                style="background-color:#2c428a; text-decoration: #87a789">
-                                   <i class="fa-solid fa-magnifying-glass"></i>
+                                        style="background-color:#2c428a; text-decoration: #87a789">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </div>
                         </div>
