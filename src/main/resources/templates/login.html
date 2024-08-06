@@ -12,9 +12,13 @@
             <div class="row align-items-center"> 
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-success"><h2>[[#{login.login}]]</h2></div>
+                    <div class="text-center">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/sugardreams-dd87c.appspot.com/o/sugardreams%2FLogo%20pasteler%C3%ADa%20y%20cupcakes%20rosa%20femenino%20(2).png?alt=media&token=3162fc4b-bd74-4ed2-9b63-70c523b0d226" alt="Imagen descriptiva" class="img-fluid" style="height: 80px;">
+                    </div>
+                    <div class="card" style="background-color: #f1e5ea; color: #000;">
+                        <div class="card-header "style="background-color: #d1dcff; color: #000;font-family: 'Rasa', serif;">Inicio Sesion</div>
                         <div class="card-body">
+
                             <form method="POST" th:action="@{/login}">
                                 <div class="form-group row my-3">
                                     <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
@@ -22,15 +26,23 @@
                                         <input class="form-control" type="text" name="username" id="username"/></div>
                                 </div>
                                 <div class="form-group row my-3">
+
                                     <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
                                     <div class="col-md-7 my-auto"><input class="form-control" type="password" name="password" id="password"/></div>
                                 </div>
+                                <div class="text-end"> Forgot password?</div>
                                 <div class="card-footer col text-center">
-                                    <button class="btn btn-primary" >
-                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
-                                    <button class="btn btn-info" >                                        
-                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
-                                    <button class="btn btn-success" type="submit">
+                                    <button 
+                                        class="btn mb-2" style="background-color: #d1dcff; color: #000;" >
+                                        <a th:href="@{/registro/nuevo}" class="btn">
+                                            <i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>
+                                    </button>
+                                    <button 
+                                        class="btn mb-2" style="background-color: #d1dcff; color: #000;" >                                        
+                                        <a th:href="@{/registro/recordar}" class="btn">
+                                            <i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a>
+                                    </button>
+                                    <button class="btn mb-2"style="background-color: #d1dcff; color: #000;"  type="submit">
                                         <span class="btn"><i class="fas fa-sign-in-alt"></i>
                                             [[#{login.login}]]</span></button>
                                 </div>
@@ -44,5 +56,5 @@
             </div>           
         </div>
         <footer th:replace="~{layout/plantilla :: footer}"/>
-    </body>
+    </body>
 </html>
