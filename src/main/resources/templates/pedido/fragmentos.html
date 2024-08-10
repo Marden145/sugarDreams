@@ -40,28 +40,30 @@
         </section>
 
         <section th:fragment="personalizar" class="py-4 mb-4 bg-light">
-            
-                <form th:action="@{/pedido/guardar}" th:object="${personalizar}" method="POST" class="was-validated" enctype="multipart/form-data">
-            
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        
+
+            <form th:action="@{/pedido/guardar}" th:object="${personalizar}" method="POST" class="was-validated" enctype="multipart/form-data">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+
                             <div class="form-group">
-                                <label for="tamaño"><strong>Tamaño</strong></label>
-                                <p> Redondo</p>
+                                <h4 for="tamaño" style="color: #87a789;">Tamaño</h4>
+                                
+                               
+                                <h6  style="color: #87a789;">Redondo</h6>
                                 <div class="d-flex">
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño1" value="4-6 porciones">
-                                            <label class="form-check-label" for="tamaño1">4-6 porciones</label>
+                                            <label class="form-check-label" for="tamaño1" style="color: black;">4-6 porciones</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño2" value="8-10 porciones">
-                                            <label class="form-check-label" for="tamaño2">8-10 porciones</label>
+                                            <label class="form-check-label" for="tamaño2" style="color: black;">8-10 porciones</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño3" value="20-24 porciones">
-                                            <label class="form-check-label" for="tamaño3">20-24 porciones</label>
+                                            <label class="form-check-label" for="tamaño3" style="color: black;">20-24 porciones</label>
                                     </div>
                                 </div>
 
@@ -71,23 +73,24 @@
 
                             </div>
                             <div class="form-group">
-                                <p> Rectangular</p>
+                                
+                                <h6  style="color: #87a789;">Rectangular</h6>
                                 <div class="d-flex">
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño4"  value="12-15 porciones">
-                                            <label class="form-check-label" for="tamaño4">12-15 porciones</label>
+                                            <label class="form-check-label" for="tamaño4" style="color: black;">12-15 porciones</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño5" value="20-24 porciones">
-                                            <label class="form-check-label" for="tamaño5">20-24 porciones</label>
+                                            <label class="form-check-label" for="tamaño5" style="color: black;">20-24 porciones</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño6" value="35-40 porciones">
-                                            <label class="form-check-label" for="tamaño6">35-40 porciones</label>
+                                            <label class="form-check-label" for="tamaño6" style="color: black;">35-40 porciones</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="tamaño" id="tamaño7" value="50-55 porciones">
-                                            <label class="form-check-label" for="tamaño7">50-55 porciones</label>
+                                            <label class="form-check-label" for="tamaño7" style="color: black;">50-55 porciones</label>
                                     </div>
                                 </div>
 
@@ -96,69 +99,71 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="sabor"><strong>Sabor</strong></label>
+                                
+                                <h4 for="sabor" style="color: #87a789;">Sabor</h4>
                                 <div class="d-flex">
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="sabor" id="sabor1" value="Chocolate">
-                                            <label class="form-check-label" for="sabor1">Chocolate</label>
+                                            <label class="form-check-label" for="sabor1" style="color: black;">Chocolate</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="sabor" id="sabor2" value="Vainilla">
-                                            <label class="form-check-label" for="sabor2">Vainilla</label>
+                                            <label class="form-check-label" for="sabor2" style="color: black;">Vainilla</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="sabor" id="sabor3" value="Velvet">
-                                            <label class="form-check-label" for="sabor3">Velvet</label>
+                                            <label class="form-check-label" for="sabor3" style="color: black;">Velvet</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="sabor" id="sabor4" value="Tres Leches">
-                                            <label class="form-check-label" for="sabor4">Tres Leches</label>
+                                            <label class="form-check-label" for="sabor4" style="color: black;">Tres Leches</label>
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="form-group">
-                                <label for="relleno"><strong>Relleno</strong></label>
+                                
+                                <h4 for="relleno" style="color: #87a789;">Relleno</h4>
                                 <div class="d-flex">
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="relleno" id="relleno1" value="Chocolate">
-                                            <label class="form-check-label" for="relleno1">Chocolate</label>
+                                            <label class="form-check-label" for="relleno1" style="color: black;">Chocolate</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="relleno" id="relleno2" value="Coco">
-                                            <label class="form-check-label" for="relleno2">Coco</label>
+                                            <label class="form-check-label" for="relleno2" style="color: black;">Coco</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="relleno" id="relleno3" value="Dulce de leche">
-                                            <label class="form-check-label" for="relleno3">Dulce de leche</label>
+                                            <label class="form-check-label" for="relleno3" style="color: black;">Dulce de leche</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="relleno" id="relleno4" value="Crema de fresa">
-                                            <label class="form-check-label" for="relleno4">Crema de fresa</label>
+                                            <label class="form-check-label" for="relleno4" style="color: black;">Crema de fresa</label>
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="form-group">
-                                <label for="cobertura"><strong>Cobertura</strong></label>
+                                <h4 for="cobertura" style="color: #87a789;">Cobertura</h4>
                                 <div class="d-flex">
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="cobertura" id="cobertura1" value="Chocolate">
-                                            <label class="form-check-label" for="cobertura1">Chocolate</label>
+                                            <label class="form-check-label" for="cobertura1" style="color: black;">Chocolate</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="cobertura" id="cobertura2" value="Vainilla">
-                                            <label class="form-check-label" for="cobertura2">Vainilla</label>
+                                            <label class="form-check-label" for="cobertura2" style="color: black;">Vainilla</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="cobertura" id="cobertura3" value="Velvet">
-                                            <label class="form-check-label" for="cobertura3">Velvet</label>
+                                            <label class="form-check-label" for="cobertura3" style="color: black;">Velvet</label>
                                     </div>
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="cobertura" id="cobertura4" value="Tres Leches">
-                                            <label class="form-check-label" for="cobertura4">Tres Leches</label>
+                                            <label class="form-check-label" for="cobertura4" style="color: black;">Tres Leches</label>
                                     </div>
 
 
@@ -170,46 +175,47 @@
 
 
 
-                        
-                    </div>
-                    <div class="col-md-4">
-                        <div class="custom-box p-3">
-                            <h4 for="altura">Altura</h4>
-                            <div class="d-flex">
-                                <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="altura" id="altura1" value="Alto">
-                                        <label class="form-check-label" for="altura1">Alto</label>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-box p-3 bg-danger-subtle text-center rounded w-200 d-flex flex-column justify-content-between border border-3 border-white h-100">
+                                <h4 for="altura" style="color: #87a789;">Altura</h4>
+                                
+                                <div class="d-flex">
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="altura" id="altura1" value="Alto">
+                                            <label class="form-check-label" for="altura1" style="color: black;">Alto</label>
+                                    </div>
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="altura" id="altura2" value="Bajo">
+                                            <label class="form-check-label" for="altura2" style="color: black;">Bajo</label>
+                                    </div>
                                 </div>
-                                <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="altura" id="altura2" value="Bajo">
-                                        <label class="form-check-label" for="altura2">Bajo</label>
+
+                                <h4 style="color: #87a789;">Descripción de la decoración</h4>
+                                <textarea class="form-control mb-3" name="descripcion" rows="3" placeholder="Escribe aquí una descripción de la decoración del queque que quieres"></textarea>
+
+                                <div class="mb-3">
+                                    <label for="imagen"> imagenFile</label>
+                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                    <img id="blah" src="#" alt="your image" altura="200"/>
                                 </div>
+                                <button type="submit" class="btn btn-sm mb-2 rounded-pill" style="background-color: #fda7cb; color: #000;">Enviar</button>
+
+
+
+
+
+
                             </div>
-
-                            <h4>Descripción de la decoración</h4>
-                            <textarea class="form-control mb-3" name="descripcion" rows="3" placeholder="Escribe aquí una descripción de la decoración del queque que quieres"></textarea>
-
-                            <div class="mb-3">
-                                <label for="imagenFile"> imagenFile</label>
-                                <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                <img id="blah" src="#" alt="your image" altura="200"/>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            
-                     
-                        
-
-                            
-                            
                         </div>
                     </div>
                 </div>
-                 </div>
-                
-                </form>
-                
-                
-                
+
+            </form>
+
+
+
         </section>
 
 
