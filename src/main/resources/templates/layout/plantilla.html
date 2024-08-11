@@ -143,17 +143,6 @@
                                 </button>
                             </form>
                         </div>
-                        <div class="row">
-                            <form method="post" th:action="@{/favorito/favoritoUsuario}">
-                                <input type="hidden" name="usuario" th:value="1"/>
-                                <div class="col-md-3 text-center">
-                                    <button class="btn btn-primary btn-lg rounded-pill"
-                                            style="background-color:#d1dcff;" type="submit" >
-                                        <i class="fa-solid fa-star"></i> </button>
-                                </div>
-                            </form>
-                        </div>
-
 
                         <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                             <li class="nav-item px-2 text-black">
@@ -180,7 +169,18 @@
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.perfil}]]</a></li>
                                     <li><a class="dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.pedidos}]]</a></li>
-                                    <li><a class="dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.favoritos}]]</a></li>
+                                    <li>
+                                        <form th:action="@{/favorito/favoritoUsuario}" method="post">
+                                            <button type="submit" class="dropdown-item">[[#{plantilla.favoritos}]]</button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form th:action="@{/inscripcion/inscripcionUsuario}" method="post">
+                                            <button type="submit" class="dropdown-item">Cursos</button>
+                                        </form>
+                                    </li>
+                                    
+
                                     <li><form method="post" th:action="@{/logout}">
                                             <button type="submit" class="dropdown-item">
                                                 [[#{plantilla.cerrar}]]

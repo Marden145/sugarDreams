@@ -42,14 +42,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         
         return lci;
     }
-   @Bean("messageSource")
-   public MessageSource nessageSource () {
-       ResourceBundleMessageSource messageSource=
-               new ResourceBundleMessageSource ();
-    messageSource.setBasenames ("messages");
-    messageSource.setDefaultEncoding ("UTF-8"); 
-    return messageSource;
-   }
+   
     
     @Override
     public void addInterceptors(InterceptorRegistry registro){
@@ -78,7 +71,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         http
         
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**",
+                .requestMatchers("/", "/index", "/errores/**","/inscripcion/**",
                         "/carrito/**", "/curso/**","/favorito/**",
                         "/menu/**","/pedido/**", "/ubicacion/**",
                         "/registro/**", "/js/**", "/webjars/**",

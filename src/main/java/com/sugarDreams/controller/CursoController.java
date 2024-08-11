@@ -83,7 +83,7 @@ public class CursoController {
     @PostMapping("/guardar")
     public String guardar(Curso curso){
         
-            cursoService.save(curso);
+        cursoService.save(curso);
            
         return "redirect:/curso/confirmacionAgregar";
         

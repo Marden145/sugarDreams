@@ -1,8 +1,8 @@
 package com.sugarDreams.controller;
 
-import com.sugarDreams.domain.Favorito;
+import com.sugarDreams.domain.Inscripcion;
 import com.sugarDreams.domain.Usuario;
-import com.sugarDreams.service.FavoritoService;
+import com.sugarDreams.service.InscripcionService;
 import com.sugarDreams.service.UsuarioService;
 import com.sugarDreams.service.FirebaseStorageService;
 
@@ -21,49 +21,49 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Controller
-@RequestMapping("/favorito")
-public class FavoritoController {
+@RequestMapping("/inscripcion")
+public class InscripcionController {
 
     @Autowired
-    private FavoritoService favoritoService;
+    private InscripcionService inscripcionService;
     @Autowired
     private UsuarioService usuarioService;
 
     @PostMapping("/guardar")
-    public String guardar(Favorito favorito) {
+    public String guardar(Inscripcion inscripcion) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         Usuario usuario = usuarioService.getUsuarioPorUsername(userDetails.getUsername());
-        favorito.setUsuario(usuario);
+        inscripcion.setUsuario(usuario);
         
 
-        favoritoService.save(favorito);
+        inscripcionService.save(inscripcion);
 
         return "redirect:/menu/menu";
 
     }
 
-    @GetMapping("/eliminar/{idFavorito}")
-    public String eliminar(Favorito favorito) {
-        favoritoService.delete(favorito);
+    @GetMapping("/eliminar/{idInscripcion}")
+    public String eliminar(Inscripcion inscripcion) {
+        inscripcionService.delete(inscripcion);
         return "redirect:/menu/menu";
 
     }
 
-    @PostMapping("/favoritoUsuario")
+    @PostMapping("/inscripcionUsuario")
     public String consultaUsuario(
             Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         Usuario usuario = usuarioService.getUsuarioPorUsername(userDetails.getUsername());
         
-        var favoritos = favoritoService.usuario(usuario);
+        var inscripciones = inscripcionService.usuario(usuario);
 
-        model.addAttribute("favoritos", favoritos);
+        model.addAttribute("inscripciones", inscripciones);
         model.addAttribute("usuario", usuario);
 
-        return "/producto/favoritos";
+        return "/curso/inscripcionUsuario";
     }
 
 }
