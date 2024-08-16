@@ -1,7 +1,5 @@
 package com.sugarDreams.service.impl;
 
-
-
 import com.sugarDreams.dao.UsuarioDao;
 import com.sugarDreams.domain.Rol;
 import com.sugarDreams.domain.Usuario;
@@ -20,43 +18,38 @@ import org.springframework.transaction.annotation.*;
 
 @Service("userDetailsService")
 public class UsuarioDetailsServiceImpl
-    implements UsuarioDetailsService,
+        implements UsuarioDetailsService,
         UserDetailsService {
 
-    
     @Autowired
     private UsuarioDao usuarioDao;
-    
-    
-     @Autowired HttpSession session;
-   
-    
-    
+
+    @Autowired
+    HttpSession session;
+
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       
-    //Se busca el Usuario en la tabla usuarios
-    
-    Usuario usuario = usuarioDao.findByUsername(username);
-    
-    if (usuario==null){
-        throw new UsernameNotFoundException(username);
-   
-    }
-    // si estamos aca... es que si se encontro el username
-    
-    session.removeAttribute("usuarioImagen");
-    session.setAttribute("usuarioImagen", usuario.getRutaImagen());
-    
-    // AHORA SE CARGAN LOS ROLES DEL USUARIO COMO ROLES
-    
-   var roles = new ArrayList<GrantedAuthority>();
-        for (Rol r:usuario.getRoles()) {
-            roles.add(new SimpleGrantedAuthority(r.getNombre()));
-            
+
+        //Se busca el Usuario en la tabla usuarios
+        Usuario usuario = usuarioDao.findByUsername(username);
+
+        if (usuario == null) {
+            throw new UsernameNotFoundException(username);
+
         }
-        
-        return new User(usuario.getUsername(),usuario.getPassword(),roles);
+        // si estamos aca... es que si se encontro el username
+
+        session.removeAttribute("usuarioImagen");
+        session.setAttribute("usuarioImagen", usuario.getRutaImagen());
+
+        // AHORA SE CARGAN LOS ROLES DEL USUARIO COMO ROLES
+        var roles = new ArrayList<GrantedAuthority>();
+        for (Rol r : usuario.getRoles()) {
+            roles.add(new SimpleGrantedAuthority(r.getNombre()));
+
+        }
+
+        return new User(usuario.getUsername(), usuario.getPassword(), roles);
     }
 }

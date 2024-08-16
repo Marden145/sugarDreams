@@ -1,4 +1,5 @@
 package com.sugarDreams.controller;
+
 import com.sugarDreams.domain.Producto;
 import com.sugarDreams.service.CategoriaService;
 import com.sugarDreams.service.FirebaseStorageService;
@@ -26,19 +27,20 @@ public class ProductoController {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
-         var categorias = categoriaService.getCategorias(false);
+        var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-       
+
         return "/producto/listado";
     }
+
     @GetMapping("/listado2")
     public String listado2(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
-         var categorias = categoriaService.getCategorias(false);
+        var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-       
+
         return "/producto/listado2";
     }
 
@@ -67,7 +69,7 @@ public class ProductoController {
     public String modificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
-         var categorias = categoriaService.getCategorias(false);
+        var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
 
         return "/producto/modificar";
@@ -82,7 +84,5 @@ public class ProductoController {
 //       
 //       return "/menu/menu";
 //    }
-    
-       
 
 }

@@ -109,6 +109,7 @@
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item"  th:href="@{/pedido/personalizar}">[[#{plantilla.personalizar}]]</a></li>
                                     <li><a class="dropdown-item"  th:href="@{/pedido/diseños}">[[#{plantilla.diseños}]]</a></li>
+                                    <li><a class="dropdown-item"  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/pedido/listado}">Total de pedidos</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -147,7 +148,7 @@
                         <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                             <li class="nav-item px-2 text-black">
                                 <a class="nav-menu-link nav-link" th:href="@{/login}">
-                                    <i class="fa-solid fa-right-to-bracket"></i>
+                                    <i class="fa-solid fa-user"></i>
                                 </a>
                             </li>
                         </ul>
@@ -168,7 +169,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.perfil}]]</a></li>
-                                    <li><a class="dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.pedidos}]]</a></li>
+
                                     <li>
                                         <form th:action="@{/favorito/favoritoUsuario}" method="post">
                                             <button type="submit" class="dropdown-item">[[#{plantilla.favoritos}]]</button>
@@ -176,10 +177,15 @@
                                     </li>
                                     <li>
                                         <form th:action="@{/inscripcion/inscripcionUsuario}" method="post">
-                                            <button type="submit" class="dropdown-item">Cursos</button>
+                                            <button type="submit" class="dropdown-item">[[#{plantilla.cursos}]]</button>
                                         </form>
                                     </li>
-                                    
+                                    <li>
+                                        <form th:action="@{/pedido/pedidoUsuario}" method="post">
+                                            <button type="submit" class="dropdown-item">[[#{plantilla.pedido}]]</button>
+                                        </form>
+                                    </li>
+
 
                                     <li><form method="post" th:action="@{/logout}">
                                             <button type="submit" class="dropdown-item">

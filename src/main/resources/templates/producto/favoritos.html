@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <!--- Mi primera pagina dinamica-->
 <html xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Menu Admin</title>
         <meta charset="UTF-8"/>
 
+
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/> 
+        <div class="header"  style="background-color:#d1dcff;">
+            <h4 style="font-family:fantasy"> Mis favoritos</h4>
+        </div>
 
         <section th:replace="~{producto/fragmentos :: favoritos}"/> 
     </body>

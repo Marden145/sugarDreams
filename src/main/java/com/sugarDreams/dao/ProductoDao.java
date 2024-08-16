@@ -6,6 +6,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductoDao extends JpaRepository<Producto,Long>{
-//Ejemplo de método utilizando métodos de consulta
+
 public List<Producto> findByNombreContainingIgnoringCase(String nombre);
 }

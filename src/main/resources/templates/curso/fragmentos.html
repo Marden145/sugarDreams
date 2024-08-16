@@ -306,7 +306,7 @@
                             <div class="mt-5">
                                 <form th:action="@{/inscripcion/guardar}" method="post"                                                             
                                       enctype="multipart/form-data">
-                                    <input type="hidden" name="curso.idCurso" value="${c.idCurso}" />
+                                    <input type="hidden" name="curso.idCurso" th:value="${c.idCurso}" />
 
                                     <button type="submit", class="btn btn-primary btn-lg rounded-pill" style="background-color:#2c428a;">Inscribirse</button>
                                 </form>
@@ -368,7 +368,7 @@
                             <div class="mt-5">
                                 <form th:action="@{/inscripcion/guardar}" method="post"                                                             
                                       enctype="multipart/form-data">
-                                    <input type="hidden" name="curso.idCurso" value="${c.idCurso}" />
+                                    <input type="hidden" name="curso.idCurso" th:value="${c.idCurso}" />
 
                                     <button type="submit", class="btn btn-primary btn-lg rounded-pill" style="background-color:#2c428a;">Inscribirse</button>
                                 </form>
@@ -417,11 +417,12 @@
                                      style="max-height: 100px; object-fit: contain;">
                             </div>
                             <div class="mt-5">
-                                <form th:action="@{/inscripcion/guardar}" method="post"                                                             
+                                <form th:action="@{/inscripcion/guardar}" method="post"                                                              
                                       enctype="multipart/form-data">
-                                    <input type="hidden" name="curso.idCurso" value="${c.idCurso}" />
+                                    <input type="hidden" th:value="${c.idCurso}" name="curso.idCurso" />
 
-                                    <button type="submit", class="btn btn-primary btn-lg rounded-pill" style="background-color:#2c428a;">Inscribirse</button>
+
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill" style="background-color:#2c428a;">Inscribirse</button>
                                 </form>
                                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/curso/eliminar/}+${c.idCurso}"
                                    class="btn btn-primary btn-lg rounded-pill" 
@@ -472,7 +473,7 @@
                             <div class="mt-5">
                                 <form th:action="@{/inscripcion/guardar}" method="post"                                                             
                                       enctype="multipart/form-data">
-                                    <input type="hidden" name="curso.idCurso" value="${c.idCurso}" />
+                                    <input type="hidden" name="curso.idCurso" th:value="${c.idCurso}" />
 
                                     <button type="submit", class="btn btn-primary btn-lg rounded-pill" style="background-color:#2c428a;">Inscribirse</button>
                                 </form>

@@ -187,9 +187,7 @@
             </div>
         </section>
         <section th:fragment="favoritos" id="favoritos">
-            <div class="header"  style="background-color:#d1dcff;">
-                <h4 style="font-family:fantasy"> Mis favoritos</h4>
-            </div>
+            
             <div class="container mt-5" th:each="favorito : ${favoritos}">
 
                 <div class="card mb-3 text-center ">
@@ -211,7 +209,7 @@
                                         <div class="card-footer  bg-danger-subtle" style=" text-align-all: center">
                                             <a th:href="@{/favorito/eliminar/}+${favorito.idFavorito}" 
                                                class="btn btn-primary btn-lg rounded-pill"
-                                               style="background-color:#d1dcff; text-decoration: #87a789; margin-bottom: auto " >
+                                               style="background-color:#2c428a; text-decoration: #87a789; margin-bottom: auto " >
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </div>

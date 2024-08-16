@@ -11,7 +11,7 @@ public class Curso implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_curso")
-    private long idCurso;
+    private Long idCurso;
     private String descripcion;
     private double precio;
     private String duracion;

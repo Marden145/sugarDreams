@@ -1,4 +1,3 @@
-
 package com.sugarDreams.service.impl;
 
 import com.sugarDreams.dao.RolDao;
@@ -13,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
+
     @Autowired
     private UsuarioDao usuarioDao;
     @Autowired
@@ -57,7 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public void save(Usuario usuario, boolean crearRolUser) {
-        usuario=usuarioDao.save(usuario);
+        usuario = usuarioDao.save(usuario);
         if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
             Rol rol = new Rol();
             rol.setNombre("ROLE_USER");

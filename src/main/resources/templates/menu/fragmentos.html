@@ -6,7 +6,7 @@
         <title>SugarDreams </title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-            <meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
 
     </head>
     <body>
@@ -30,20 +30,20 @@
                                                     <h5 class="card-title text-center">[[${producto.nombre}]]</h5>
                                                     <p class="card-text text-center"><small class="text-body-secondary">[[${producto.descripcion}]]</small></p>
                                                     <p class="card-text text-center"><small class="text-body-secondary">¢[[${producto.precio}]]</small></p>
-                                                    
+
                                                 </div>
-                                                
-                                                    <form th:action="@{/favorito/guardar}" 
-                                                          method="POST" class="was-validated" enctype="multipart/form-data">
-                                                        
-                                                        <input type="hidden" name="producto.idProducto" th:value="${producto.idProducto}"/>
-                                                        <div class="col-md-3 text-center">
-                                                            <button class="btn btn-primary btn-lg rounded-pill"
-                                                                    style="background-color:#d1dcff;" type="submit" >
-                                                                <i class="fa-solid fa-star"></i> </button>
-                                                        </div>
-                                                    </form>
-                                                
+
+                                                <form th:action="@{/favorito/guardar}" 
+                                                      method="POST" class="was-validated" enctype="multipart/form-data">
+
+                                                    <input type="hidden" name="producto.idProducto" th:value="${producto.idProducto}"/>
+                                                    <div class="col-md-3 text-center">
+                                                        <button class="btn btn-primary btn-lg rounded-pill"
+                                                                style="background-color:#d1dcff;" type="submit" >
+                                                            <i class="fa-solid fa-star"></i> </button>
+                                                    </div>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -54,10 +54,5 @@
                 </div>
             </div>
         </section>
-
-
-
-
-
     </body>
 </html>

@@ -1,4 +1,3 @@
-
 package com.sugarDreams.controller;
 
 import org.springframework.ui.Model;
@@ -12,25 +11,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/")
 public class IndexController {
+
     @Autowired
     private UsuarioService usuarioService;
+
     @GetMapping("/")
     public String inicio(Model model) {
-
-        model.addAttribute("Efallas");
-        model.addAttribute("");
-
         return "index";
     }
+
     @GetMapping("/login")
     public String Login(Model model, Usuario usuario) {
         model.addAttribute("usuario", usuario);
-        
+
         return "/login";
     }
+
     @PostMapping("/login")
     public String confirmarLogin(Model model, Usuario usuario) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -45,5 +45,5 @@ public class IndexController {
             return "redirect:/login";
         }
     }
-    
+
 }
