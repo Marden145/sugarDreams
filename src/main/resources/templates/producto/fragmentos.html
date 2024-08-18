@@ -187,41 +187,45 @@
             </div>
         </section>
         <section th:fragment="favoritos" id="favoritos">
-            
-            <div class="container mt-5" th:each="favorito : ${favoritos}">
+            <div class="row">
+                <div class="card-header text-center"  style="background-color:#d1dcff;">
+                    <h4  style="font-family:fantasy">Mis Favoritos</h4>
+                </div>
 
-                <div class="card mb-3 text-center ">
+                <div class="container mt-5" th:each="favorito : ${favoritos}">
 
-                    <div class="card-body  flex-column" >
+                    <div class="card mb-3 text-center ">
 
-                        <div class=" col-md-6 mb-3" >
-                            <div class="card mb-3 " >
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img th:src="${favorito.producto.rutaImagen}" alt="Imagen del producto" class="card-img-top" height="220px" width="175px">
-                                    </div>
-                                    <div class="col-md-8 bg-danger-subtle ">
-                                        <div class="card-body ">
-                                            <h5 class="card-title text-center">[[${favorito.producto.nombre}]]</h5>
-                                            <p class="card-text text-center"><small class="text-body-secondary">[[${favorito.producto.descripcion}]]</small></p>
-                                            <p class="card-text text-center"><small class="text-body-secondary">¢[[${favorito.producto.precio}]]</small></p>
+                        <div class="card-body  flex-column" >
+
+                            <div class=" col-md-6 mb-3" >
+                                <div class="card mb-3 " >
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img th:src="${favorito.producto.rutaImagen}" alt="Imagen del producto" class="card-img-top" height="220px" width="175px">
                                         </div>
-                                        <div class="card-footer  bg-danger-subtle" style=" text-align-all: center">
-                                            <a th:href="@{/favorito/eliminar/}+${favorito.idFavorito}" 
-                                               class="btn btn-primary btn-lg rounded-pill"
-                                               style="background-color:#2c428a; text-decoration: #87a789; margin-bottom: auto " >
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </a>
+                                        <div class="col-md-8 bg-danger-subtle ">
+                                            <div class="card-body ">
+                                                <h5 class="card-title text-center">[[${favorito.producto.nombre}]]</h5>
+                                                <p class="card-text text-center"><small class="text-body-secondary">[[${favorito.producto.descripcion}]]</small></p>
+                                                <p class="card-text text-center"><small class="text-body-secondary">¢[[${favorito.producto.precio}]]</small></p>
+                                            </div>
+                                            <div class="card-footer  bg-danger-subtle" style=" text-align-all: center">
+                                                <a th:href="@{/favorito/eliminar/}+${favorito.idFavorito}" 
+                                                   class="btn btn-primary btn-lg rounded-pill"
+                                                   style="background-color:#2c428a; text-decoration: #87a789; margin-bottom: auto " >
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-
                     </div>
-                </div>
 
-            </div>
+                </div>
         </section>
 
 

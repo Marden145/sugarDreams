@@ -18,6 +18,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+
+
 @Configuration
 public class ProjectConfig implements WebMvcConfigurer {
 
@@ -54,6 +57,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
+       
 
     @Bean("messageSource")
     public MessageSource messageSource() {
@@ -63,17 +67,18 @@ public class ProjectConfig implements WebMvcConfigurer {
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
+    
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**", "/inscripcion/**",
+                .requestMatchers("/**", "/index", "/errores/**", "/inscripcion/**",
                         "/carrito/**", "/curso/**", "/favorito/**", "/pedido/personalizar",
                         "/menu/**", "/pedido/**", "/ubicacion/**",
-                        "/registro/**", "/js/**", "/webjars/**",
+                        "/registro/**", "/js/**","/css/**", "/webjars/**",
                         "/menu/consultaNombre", "/producto/listado2",
-                        "/pedido/guardar",
+                        "/pedido/guardar","/usuario/**",
                         "/login", "/pedido/personalizar").permitAll()
                 .requestMatchers(
                         "/producto/nuevo", "/producto/guardar", "/producto/listado/**",
@@ -88,7 +93,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/producto/listado",
                         "/categoria/listado",
                         "/usuario/listado").hasAnyRole("ADMIN", "VENDEDOR")
-                .requestMatchers("/facturar/carrito", "/pedido/pedidoUsuario","/pedido/guardar").hasRole("USER")
+                .requestMatchers("/facturar/carrito", "/pedido/pedidoUsuario","/pedido/guardar","/carrito/**").hasRole("USER")
                 )
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())

@@ -13,3 +13,12 @@ function readURL(input){
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function addCart(formulario) {
+    var idProducto = formulario.elements[0].value;
+    var existencias = formulario.elements[1].value;
+    if (existencias > 0) {
+        var url = "/carrito/agregar/" + idProducto;
+        $("#resultsBlock").load(url);
+    }
+}

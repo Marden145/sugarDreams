@@ -30,4 +30,6 @@ public interface UsuarioService {
   
     public void delete(Usuario usuario);
     
+    
+    
 }

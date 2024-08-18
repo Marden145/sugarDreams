@@ -151,7 +151,73 @@
                           class="was-validated"
                           enctype="multipart/form-data">
                         <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
-                        
+                        <input type="hidden" name="password" th:field="*{password}"/>
+                        <input type="hidden" name="username" th:field="*{username}"/>
+
+
+
+                        <div id=details>
+                            <div class="container" style="background-color:#f1e5ea;">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card" style="background-color:#f1e5ea;">
+                                            <div class="card-header">
+                                                <h4>[[#{accion.actualizar}]]</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" name="nombre" th:field="*{nombre}"
+                                                           required="true" placeholder="nombre" aria-label="nombre"
+                                                           style="background-color:#d1dcff;"/>
+                                                </div>
+                                                <div class="mb-3">
+
+                                                    <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}"
+                                                           required="true" placeholder="apellidos" aria-label="apellidos"
+                                                           style="background-color:#d1dcff;"/>
+                                                </div>
+                                                <div class="mb-3">
+
+                                                    <input type="text" class="form-control" name="correo" th:field="*{correo}"
+                                                           required="true" placeholder="correo" aria-label="correo"
+                                                           style="background-color:#d1dcff;"/>
+                                                </div>
+                                                <div class="mb-3">
+
+                                                    <input type="text" class="form-control" name="telefono" th:field="*{telefono}"
+                                                           required="true" placeholder="telefono" aria-label="telefono"
+                                                           style="background-color:#d1dcff;"/>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">[[#{usuario.imagen}]]</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" style="background-color:#d1dcff;"/>
+                                                    <img id="blah" th:src="@{${usuario.rutaImagen}}" alt="your image" height="200"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <section th:replace="~{usuario/fragmentos :: botonesEditarUsuario}"/>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="editarUsuarioAdmin">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/usuario/guardar}" th:object="${usuario}"
+                          class="was-validated"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
+                        <input type="hidden" name="password" th:value="*{password}"/>
+                        <input type="hidden" name="username" th:value="*{username}"/>
+
+
+
                         <div id=details>
                             <div class="container" style="background-color:#f1e5ea;">
                                 <div class="row">
@@ -221,11 +287,64 @@
                     <div class="col-md-4 d-grid">
                         <button type="submit" class="btn btn-primary btn-lg rounded-pill" 
                                 style="background-color:#2c428a; text-decoration: #87a789">
-                            <i th:href="@{/curso/confirmacionModificacion/} " class="fas fa-check"></i> guardar
+                            <i class="fas fa-check"></i> guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="botonesEditarUsuario">
+            <div class="container py-4 mb-4" style="background-color:#e7c7c7;">
+                <div class="row" style="background-color:#e7c7c7;">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/usuario/usuario}" class="btn btn-primary btn-lg rounded-pill" 
+                           style="background-color:#87a789; text-decoration: #87a789">
+                            <i class="fas fa-arrow-left"></i> regresar
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">                                
+                        <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
+                           class="btn btn-primary btn-lg rounded-pill"
+                           style="background-color:#d1dcff; text-decoration: #87a789">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg rounded-pill" 
+                                style="background-color:#2c428a; text-decoration: #87a789">
+                            <i class="fas fa-check"></i> guardar
                         </button>
                     </div>
                 </div>
             </div>
         </section>
     </body>
+    <section th:fragment="Usuario" id="usuarios" class="text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 mb-3">
+                    <div class="card-header">
+                        <h2 style="color: #87a789;"> Mi cuenta</h2>
+                    </div>
+                    <div th:each="usuario : ${usuarios}" class="card h-100" style="background-color:#fda7cb;">
+                        <div class="card-body text-center">
+                            <img th:src="${usuario.rutaImagen}" class="rounded-circle mb-3" height="100px">
+                                <h3> Bienvenido [[${usuario.username}]]</h3>
+                                <h4>Mis Datos</h4>
+                                <p class="card-text">[[${usuario.nombre}]] [[${usuario.apellidos}]]</p>
+                                <p class="card-text">[[${usuario.correo}]]</p>
+                                <p class="card-text">[[${usuario.telefono}]]</p>
+
+                        </div>
+                        <div class="card-footer text-center">
+                            <a th:href="@{/usuario/modificar/}+${usuario.idUsuario}" class="btn btn-lg mb-2 rounded-pill" 
+                               style="background-color: white;">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 </html>

@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Controller
 @RequestMapping("/usuario")
@@ -51,7 +54,7 @@ public class UsuarioController {
                             usuario.getIdUsuario()));
         }
         usuarioService.save(usuario,true);
-        return "redirect:/usuario/listado";
+        return "redirect:/usuario/usuario";
     }
 
     @GetMapping("/eliminar/{idUsuario}")
@@ -66,5 +69,28 @@ public class UsuarioController {
         model.addAttribute("usuario", usuario);
         return "/usuario/modificar";
     }
+    @GetMapping("/editarUsuario/{idUsuario}")
+    public String editarUsuario(Usuario usuario, Model model) {
+        usuario = usuarioService.getUsuario(usuario);
+        model.addAttribute("usuario", usuario);
+        return "/usuario/editarUsuario";
+    }
+    
+    @GetMapping("/usuario")
+    public String consultaUsuario(
+            Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+        Usuario usuario = usuarioService.getUsuarioPorUsername(userDetails.getUsername());
+        String username=usuario.getUsername();
+
+        var usuarios = usuarioService.getUsuarioPorUsername(username);
+
+        model.addAttribute("usuarios", usuarios);
+        model.addAttribute("usuario", usuario);
+
+        return "/usuario/usuario";
+    }
+    
 }
 
