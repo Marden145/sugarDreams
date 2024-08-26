@@ -169,13 +169,22 @@
                                             <p class="card-text text-center"><small class="text-body-secondary">[[${producto.descripcion}]]</small></p>
                                             <p class="card-text text-center"><small class="text-body-secondary">¢[[${producto.precio}]]</small></p>
                                         </div>
-                                        <div class="card-footer  bg-danger-subtle" style=" text-align-all: center">
-                                            <a th:href="@{/producto/eliminar/}+${producto.idProducto}" 
-                                               class="btn btn-primary btn-lg rounded-pill"
-                                               style="background-color:#d1dcff; text-decoration: #87a789; margin-bottom: auto " >
-                                                <i class="fa-solid fa-cart-plus"></i>
-                                            </a>
-                                        </div>
+                                       <div class="d-flex justify-content-center" sec:authorize="isAuthenticated()">
+                                        <form th:action="@{/favorito/guardar}" method="POST" class="was-validated" enctype="multipart/form-data">
+                                            <input type="hidden" name="producto.idProducto" th:value="${producto.idProducto}"/>
+                                            <button class="btn btn-primary btn-lg rounded-pill" style="background-color:#d1dcff;" type="submit">
+                                                <i class="fa-solid fa-star"></i>
+                                            </button>
+                                        </form>
+                                        <form>
+                                            <input type="hidden" name="texto" th:value="${producto.idProducto}"/>
+                                            <input type="hidden" name="texto" th:value="${producto.existencias}"/>
+                                            <button class="btn btn-primary btn-lg rounded-pill ms-3" style="background-color:#d1dcff;" 
+                                                    id="addCar" name="addCar" onclick="addCart(this.form)" type="button">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
