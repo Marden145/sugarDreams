@@ -128,6 +128,7 @@
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/ubicacion/ubicacion}">[[#{plantilla.ubicanos}]]</a></li>
                             <li class="nav-item px-2" sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantillaA.agregarCategoria}]]</a></li>
                             <li class="nav-item px-2" sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantillaA.menuAdmin}]]</a></li>
+                            <li class="nav-item px-2" sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-link" th:href="@{/comentarios/listado}">comentarios</a></li>
                         </ul>
 
 
@@ -195,6 +196,9 @@
                                                 [[#{plantilla.cerrar}]]
                                             </button>
                                         </form>
+                                    </li>
+                                    <li>
+                                        <li><a class="dropdown-item"  th:href="@{/comentarios/agregar}">comentarios</a></li>
                                     </li>
                                 </ul>
                             </li>

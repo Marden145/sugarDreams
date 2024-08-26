@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Comentarios</title>
+</head>
+<body>
+
+    <div th:fragment="listaComentarios">
+        <section id="comentarios" class="mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-header mb-3">
+                            <h4>Comentarios de usuarios</h4>
+                        </div>
+                        <div th:if="${comentarios != null and !comentarios.empty}">
+                            <div class="row g-3">
+                                <div class="col-md-12" th:each="comentario : ${comentarios}">
+                                    <div class="card mb-3" style="background-color: #f8d7da; border: 1px solid black; border-radius: .375rem;">
+                                        <div class="card-body">
+                                            <img th:src="${comentario.usuario.rutaImagen}" class="rounded-circle mb-3 float-end" height="100px">
+                                            <h2 class="card-title">[[${comentario.usuario.username}]]</h2>
+                                            <h5 class="card-title">[[${comentario.comentario}]]</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center p-2" th:if="${comentarios == null or comentarios.empty}">
+                           no hay comentarios
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

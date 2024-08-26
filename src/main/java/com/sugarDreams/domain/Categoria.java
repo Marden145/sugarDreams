@@ -1,3 +1,4 @@
+
 package com.sugarDreams.domain;
 
 import jakarta.persistence.Column;
