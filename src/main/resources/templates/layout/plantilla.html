@@ -98,7 +98,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/menu/menu}">[[#{plantilla.menu}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/carrito/listado}">[[#{plantilla.carrito}]]</a></li>
+                            
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" 
@@ -107,7 +107,7 @@
                                    role="button" 
                                    aria-expanded="false">[[#{plantilla.pedido}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item"  th:href="@{/pedido/personalizar}">[[#{plantilla.personalizar}]]</a></li>
+                                    <li sec:authorize="isAuthenticated()"><a class="dropdown-item"  th:href="@{/pedido/personalizar}">[[#{plantilla.personalizar}]]</a></li>
                                     <li><a class="dropdown-item"  th:href="@{/pedido/diseños}">[[#{plantilla.diseños}]]</a></li>
                                     <li><a class="dropdown-item"  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/pedido/listado}">Total de pedidos</a></li>
                                 </ul>
@@ -231,10 +231,10 @@
                             </p>
                             <div class="footer-links mt-3">
                                 <h3 class="text-white me-3"> Contáctanos</h3>
-                                <a href="/redes-sociales" class="text-white me-3"><i class="fab fa-facebook"></i> Facebook</a>
-                                <a href="/redes-sociales" class="text-white me-3"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="https://www.facebook.com/profile.php?id=61564914243047" class="text-white me-3"><i class="fab fa-facebook"></i> Facebook</a>
+                               
                                 <a href="https://www.instagram.com/sugardrea__?igsh=ZHpqdDd1YTVndTc5&utm_source=qr" class="text-white me-3"><i class="fab fa-instagram"></i> Instagram</a>
-                                <h3 class="text-white">Políticas</h3>
+                                
                             </div>
                         </div>
                     </div>
